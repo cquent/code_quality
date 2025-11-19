@@ -6,6 +6,15 @@ app = Flask(__name__)
 items = []
 
 
+def format_item(item: str) -> str:
+    return item.strip().capitalize()
+
+
+@app.get("/api/hello")
+def hello():
+    return {"message": "Hello, world!"}, 200
+
+
 @app.route("/")
 def index():
     return render_template("index.html", items=items)
